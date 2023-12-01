@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Entity
 @Table(name = "appointments")
@@ -13,14 +12,14 @@ public class Appointment {
 
     @Id
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @NonNull
     @Column(name = "roomNumber")
     private int roomNumber;
 
     @NotNull
-    @Column(name="date")
+    @Column(name = "date")
     private LocalDateTime date;
 
     @ManyToOne
@@ -36,7 +35,7 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(UUID id, int roomNumber, @NotNull LocalDateTime date, @NotNull Patient patientId, @NotNull Doctor doctorId) {
+    public Appointment(int id, int roomNumber, @NotNull LocalDateTime date, @NotNull Patient patientId, @NotNull Doctor doctorId) {
         this.id = id;
         this.roomNumber = roomNumber;
         this.date = date;
@@ -44,11 +43,11 @@ public class Appointment {
         this.doctorId = doctorId;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

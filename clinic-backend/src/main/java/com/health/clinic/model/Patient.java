@@ -13,7 +13,7 @@ public class Patient {
 
     @Id
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @NotNull
     @Column(name = "firstName")
@@ -51,7 +51,7 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(UUID id, @NotNull String firstName, @NotNull String lastName, @NotNull LocalDate birthDate, @NotNull String addressStreet, @NotNull String addressApartmentNumber, @NotNull String addressCity, @NotNull String postalCode, @NotNull String addressCountry) {
+    public Patient(int id, @NotNull String firstName, @NotNull String lastName, @NotNull LocalDate birthDate, @NotNull String addressStreet, @NotNull String addressApartmentNumber, @NotNull String addressCity, @NotNull String postalCode, @NotNull String addressCountry) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -63,11 +63,11 @@ public class Patient {
         this.addressCountry = addressCountry;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

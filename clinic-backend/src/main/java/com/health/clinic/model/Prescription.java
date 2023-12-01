@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table(name = "prescriptions")
@@ -12,7 +11,7 @@ public class Prescription {
 
     @Id
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @NotNull
     @Column(name = "description")
@@ -39,7 +38,7 @@ public class Prescription {
     public Prescription() {
     }
 
-    public Prescription(UUID id, @NotNull String description, @NotNull LocalDate creationDate, @NotNull LocalDate expirationDate, @NotNull Doctor doctorId, @NotNull Patient patientId) {
+    public Prescription(int id, @NotNull String description, @NotNull LocalDate creationDate, @NotNull LocalDate expirationDate, @NotNull Doctor doctorId, @NotNull Patient patientId) {
         this.id = id;
         this.description = description;
         this.creationDate = creationDate;
@@ -48,11 +47,11 @@ public class Prescription {
         this.patientId = patientId;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

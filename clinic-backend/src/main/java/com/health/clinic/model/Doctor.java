@@ -3,15 +3,13 @@ package com.health.clinic.model;
 import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.UUID;
-
 @Entity
 @Table(name = "Doctors")
 public class Doctor {
 
     @Id
     @Column(name = "id")
-    private UUID id;
+    private int id;
 
     @NotNull
     @Column(name = "firstName")
@@ -38,7 +36,7 @@ public class Doctor {
     public Doctor() {
     }
 
-    public Doctor(UUID id, @NotNull String firstName, @NotNull String lastName, boolean isAvailable, String phoneNumber, String emailAddress, @NotNull String specialization) {
+    public Doctor(int id, @NotNull String firstName, @NotNull String lastName, boolean isAvailable, String phoneNumber, String emailAddress, @NotNull String specialization) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,11 +46,11 @@ public class Doctor {
         this.specialization = specialization;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
