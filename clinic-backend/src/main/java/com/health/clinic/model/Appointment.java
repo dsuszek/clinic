@@ -4,17 +4,16 @@ import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.lang.NonNull;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "appointments")
 public class Appointment {
 
     @Id
-    @SequenceGenerator(name = "appointments_id_seq",
-            sequenceName = "appointments_id_seq",
-            allocationSize = 1)
-    private int id;
+    @Column(name = "id")
+    private UUID id;
 
     @NonNull
     @Column(name = "roomNumber")
@@ -22,15 +21,69 @@ public class Appointment {
 
     @NotNull
     @Column(name="date")
-    private LocalDate date;
+    private LocalDateTime date;
 
     @ManyToOne
     @JoinColumn(name = "patientId")
     @NotNull
-    private Patient patient;
+    private Patient patientId;
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
     @NotNull
-    private Doctor doctor;
+    private Doctor doctorId;
+
+    public Appointment() {
+    }
+
+    public Appointment(UUID id, int roomNumber, @NotNull LocalDateTime date, @NotNull Patient patientId, @NotNull Doctor doctorId) {
+        this.id = id;
+        this.roomNumber = roomNumber;
+        this.date = date;
+        this.patientId = patientId;
+        this.doctorId = doctorId;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
+    }
+
+    @NotNull
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(@NotNull LocalDateTime date) {
+        this.date = date;
+    }
+
+    @NotNull
+    public Patient getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(@NotNull Patient patientId) {
+        this.patientId = patientId;
+    }
+
+    @NotNull
+    public Doctor getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(@NotNull Doctor doctorId) {
+        this.doctorId = doctorId;
+    }
 }
