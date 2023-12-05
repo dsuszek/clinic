@@ -19,8 +19,8 @@ public class Appointment {
     private int roomNumber;
 
     @NotNull
-    @Column(name = "date")
-    private LocalDateTime date;
+    @Column(name = "dateTime")
+    private LocalDateTime dateTime;
 
     @ManyToOne
     @JoinColumn(name = "patientId")
@@ -35,10 +35,10 @@ public class Appointment {
     public Appointment() {
     }
 
-    public Appointment(int id, int roomNumber, @NotNull LocalDateTime date, @NotNull Patient patientId, @NotNull Doctor doctorId) {
+    public Appointment(int id, int roomNumber, @NotNull LocalDateTime dateTime, @NotNull Patient patientId, @NotNull Doctor doctorId) {
         this.id = id;
         this.roomNumber = roomNumber;
-        this.date = date;
+        this.dateTime = dateTime;
         this.patientId = patientId;
         this.doctorId = doctorId;
     }
@@ -60,12 +60,12 @@ public class Appointment {
     }
 
     @NotNull
-    public LocalDateTime getDate() {
-        return date;
+    public LocalDateTime getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(@NotNull LocalDateTime date) {
-        this.date = date;
+    public void setDate(@NotNull LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 
     @NotNull
