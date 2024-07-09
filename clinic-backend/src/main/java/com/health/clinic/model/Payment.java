@@ -1,17 +1,17 @@
 package com.health.clinic.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "Payments")
 public class Payment {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Column(name = "dueDate")

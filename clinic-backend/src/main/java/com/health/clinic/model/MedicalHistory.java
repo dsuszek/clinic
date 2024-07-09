@@ -1,15 +1,17 @@
 package com.health.clinic.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+@Entity
+@Table(name = "MedicalHistories")
 public class MedicalHistory {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull

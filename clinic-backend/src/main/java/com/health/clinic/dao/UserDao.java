@@ -1,6 +1,8 @@
 package com.health.clinic.dao;
 
 import com.health.clinic.model.User;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +11,13 @@ import java.util.Optional;
 
 public class UserDao implements Dao<User> {
 
+    @PersistenceContext
+    private final EntityManager entityManager;
+
     private List<User> users = new ArrayList<>();
 
-    public UserDao() {
+    public UserDao(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Override
@@ -26,7 +32,7 @@ public class UserDao implements Dao<User> {
 
     @Override
     public void create(User user) {
-        users.add(user);
+        entityManager.persist(user);
     }
 
     @Override

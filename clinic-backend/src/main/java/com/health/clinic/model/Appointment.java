@@ -7,11 +7,12 @@ import org.springframework.lang.NonNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "appointments")
+@Table(name = "Appointments")
 public class Appointment {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NonNull

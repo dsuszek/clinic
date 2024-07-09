@@ -9,6 +9,7 @@ public class Service {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull

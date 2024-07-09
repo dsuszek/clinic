@@ -6,11 +6,12 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "prescriptions")
+@Table(name = "Prescriptions")
 public class Prescription {
 
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @NotNull
